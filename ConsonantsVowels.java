@@ -43,41 +43,25 @@ public class ConsonantsVowels
     
     boolean isVowel(String str){
         String vowels = "aeiou";
-        for (int i=0;i<vowels.length();i++){
-            if (str.equals(vowels.split("")[i])){
-                return true;
-            }
-        }
+        if (vowels.contains(str)){return true;}
         return false;
     }
     
     boolean isConsonant(String str){
         String consonants = "bcdfghjklmnpqrstvwxyz";
-        for (int i=0;i<consonants.length();i++){
-            if (str.equals(consonants.split("")[i])){
-                return true;
-            }
-        }
+        if (consonants.contains(str)){return true;}
         return false;
     }
     
     boolean isDigit(String str){
         String digits = "0123456789";
-        for (int i=0;i<digits.length();i++){
-            if (str.equals(digits.split("")[i])){
-                return true;
-            }
-        }
+        if (digits.contains(str)){return true;}
         return false;
     }
     
     boolean isPunc(String str){
         String puncs = ".,-!'\"?";
-        for (int i=0;i<puncs.length();i++){
-            if (str.equals(puncs.split("")[i])){
-                return true;
-            }
-        }
+        if (puncs.contains(str)){return true;}
         return false;
     }
     
