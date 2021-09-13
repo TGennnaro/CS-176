@@ -15,6 +15,7 @@ public class ConsonantsVowels
         int pCount = 0;
         int dCount = 0;
         int sCount = 0;
+        int oCount = 0;
         for (int i = 0; i < str.length(); i++)
         {
             // take current character of str at index i
@@ -31,6 +32,8 @@ public class ConsonantsVowels
                 pCount++;
             } else if (current.equals(" ")){
                 sCount++;
+            } else {
+                oCount++;
             }
         } // end for
         
@@ -39,6 +42,7 @@ public class ConsonantsVowels
         System.out.println("Number of digits: " + dCount);
         System.out.println("Number of punctuations: " + pCount);
         System.out.println("Number of spaces: " + sCount);
+        System.out.println("Number of other characters: " + oCount);
     }
     
     boolean isVowel(String str){
