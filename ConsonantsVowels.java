@@ -62,7 +62,7 @@ public class ConsonantsVowels
     }
     
     boolean isDigit(String str){
-        String digits = "123456789";
+        String digits = "0123456789";
         for (int i=0;i<digits.length();i++){
             if (str.equals(digits.split("")[i])){
                 return true;
