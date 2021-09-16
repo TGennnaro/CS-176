@@ -10,7 +10,7 @@ public class CashRegisterTester
         final int SENTINEL = -1;
         
         while (input != SENTINEL){
-            System.out.println("Total Purchase Total: "+register.getPurchaseTotal());
+            System.out.printf("Total Purchase Amount: $%.2f\n", register.getPurchaseTotal());
             System.out.print("Enter purchase amount, or "+SENTINEL+" to stop: ");
             
             input = in.nextDouble();
@@ -30,14 +30,14 @@ public class CashRegisterTester
         register.receivePayment(payment);
         
         while (register.getPaymentTotal() < register.getPurchaseTotal()){
-            System.out.println("Insufficient funds. Have $"+register.getPaymentTotal()+"... Need $"+register.getPurchaseTotal());
+            System.out.printf("Insufficient funds. Have $%.2f... Need $%.2f\n", register.getPaymentTotal(), register.getPurchaseTotal());
             
             System.out.print("Enter additional funds: ");
             payment = in.nextDouble();
             register.receivePayment(payment);
         }
         
-        System.out.println("Your change is: $"+register.giveChange());
+        System.out.printf("Your change is: $%.2f", register.giveChange());
         
         in.close();
     }
