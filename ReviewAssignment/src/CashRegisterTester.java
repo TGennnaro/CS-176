@@ -1,42 +1,39 @@
 import java.util.Scanner;
-public class CashRegisterTester {
 
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		CashRegister register = new CashRegister();
-		
-		double input = 0;
-		while (input != -1) {
-			System.out.print("Enter a purchase amount, or -1 to stop: ");
-			
-			input = in.nextDouble();
-			if (input > 0) { // Make sure they don't input a negative number.
-				register.recordPurchase(input);
-			}
-		}
-		
-		if (register.getPurchaseTotal() <= 0) { // If the purchase never goes over 0, then there is no payment.
-			System.out.println("Purchase total is $0. No payment necessary.");
-			in.close();
-			return;
-		}
-		
-		boolean needsMore = false; // variable allows us to print one message the first time and another message the rest of the time.
-		while (register.getPaymentTotal() < register.getPurchaseTotal()) { // If they have not given sufficient funds to accommodate the purchase...
-			if (needsMore) {
-				System.out.print("Insufficient payment given. Add more funds: $");
-			} else {
-				System.out.print("Enter payment: $");
-				needsMore = true;
-			}
-			
-			double payment = in.nextDouble();
-			register.receivePayment(payment);
-		}
-		
-		System.out.printf("Your change is: $%.2f", register.giveChange());
-		
-		in.close();
-	}
-
+public class CashRegisterTester
+{
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        CashRegister register = new CashRegister();
+        
+        double input = 0;
+        final int SENTINEL = -1;
+        
+        while (input != SENTINEL){
+            System.out.println("Total Purchase Total: "+register.getPurchaseTotal());
+            System.out.print("Enter purchase amount, or "+SENTINEL+" to stop: ");
+            
+            input = in.nextDouble();
+            
+            if (input == SENTINEL){continue;}
+            
+            register.recordPurchase(input);
+        }
+        
+        System.out.print("Enter your payment: ");
+        double payment = in.nextDouble();
+        register.receivePayment(payment);
+        
+        while (register.getPaymentTotal() < register.getPurchaseTotal()){
+            System.out.println("Insufficient funds. Have $"+register.getPaymentTotal()+"... Need $"+register.getPurchaseTotal());
+            
+            System.out.print("Enter additional funds: ");
+            payment = in.nextDouble();
+            register.receivePayment(payment);
+        }
+        
+        System.out.println("Your change is: $"+register.giveChange());
+        
+        in.close();
+    }
 }
