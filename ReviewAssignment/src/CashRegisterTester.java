@@ -20,6 +20,11 @@ public class CashRegisterTester
             register.recordPurchase(input);
         }
         
+        if (register.getPurchaseTotal() == 0){ // If there is no purchase at all, or it cancels out at 0, then nothing further needs to happen.
+            System.out.println("No payment necessary. Have a great day!");
+            return;
+        }
+        
         System.out.print("Enter your payment: ");
         double payment = in.nextDouble();
         register.receivePayment(payment);
