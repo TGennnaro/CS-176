@@ -6,13 +6,13 @@ public class Main {
 		double largest = values[0];
 		int negatives = 0;
 		
-		for (int i=0;i<values.length;i++) {
-			System.out.print(values[i]+" ");
+		for (double i : values) {
+			System.out.print(i+" ");
 			
-			if (values[i] > largest) {
-				largest = values[i];
+			if (i > largest) {
+				largest = i;
 			}
-			if (values[i] < 0) {
+			if (i < 0) {
 				negatives++;
 			}
 		}
