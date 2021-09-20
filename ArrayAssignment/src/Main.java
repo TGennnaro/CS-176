@@ -18,7 +18,7 @@ public class Main {
 		}
 		System.out.println();
 		System.out.println("The maximum value in the array is "+largest+".");
-		System.out.println("There are a total of "+negatives+" negative values in the array.");
+		System.out.println("There are "+negatives+" negative values in the array.");
 	}
 
 }
