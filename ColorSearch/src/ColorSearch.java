@@ -8,18 +8,6 @@ public class ColorSearch {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
-		Colors.add("dark brown");
-		Colors.add("brown");
-		Colors.add("chartreuse");
-		Colors.add("aqua");
-		Colors.add("green");
-		Colors.add("indigo");
-		Colors.add("lavender");
-		Colors.add("red");
-		Colors.add("magenta");
-		Colors.add("violet");
-		Colors.add("yellow");
-		
 		while (true) {
 			System.out.print("Enter a color name, or 'Q' to quit: ");
 			String input = in.nextLine();
