@@ -16,7 +16,7 @@ public class InputOutputFiles
 			String path = consoleIn.next();
 			try {
 				File inputFile = new File(path);
-				PrintWriter outputFile = new PrintWriter("/export/home/hawkdom2/s1305961/Documents/outlines.txt");
+				PrintWriter outputFile = new PrintWriter("outlines.txt");
 				
 				Scanner in = new Scanner(inputFile);
 				while (in.hasNext())
@@ -26,7 +26,7 @@ public class InputOutputFiles
 				}
 				in.close();
 				outputFile.close();
-				break;
+				break; // Break at the end to end the loop, as all the code was run without exception.
 			} catch (FileNotFoundException e) {
 				System.out.println("File was not found, please try again.");
 			}
